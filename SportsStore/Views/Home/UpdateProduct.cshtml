@@ -1,5 +1,6 @@
 ﻿@model Product
-<hЗ class="p-2 bg-primary text-white text-center">Update Product</hЗ>
+
+<h3 class="p-2 bg-primary text-white text-center">Update Product</h3>
 
 <form asp-action="UpdateProduct" method="post">
     <div class="form-group">
@@ -12,7 +13,7 @@
     </div>
     <div class="form-group">
         <label asp-for="Category"></label>
-        <select asp-for="CategoryId" class="form-control">
+        <select class="form-control" asp-for="CategoryId">
             @if (Model.Id == 0)
             {
                 <option disabled selected>Choose Category</option>

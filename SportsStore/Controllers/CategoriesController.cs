@@ -3,6 +3,7 @@ using SportsStore.Models;
 
 namespace SportsStore.Controllers
 {
+
     public class CategoriesController : Controller
     {
         private ICategoryRepository _repository;
@@ -10,7 +11,7 @@ namespace SportsStore.Controllers
         public CategoriesController(ICategoryRepository repo)
             => _repository = repo;
 
-        public IActionResult Index()
+        public IActionResult Index() 
             => View(_repository.Categories);
 
         [HttpPost]

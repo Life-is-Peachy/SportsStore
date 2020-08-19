@@ -6,8 +6,8 @@ namespace SportsStore.Models
     {
         private DataContext _context;
 
-        public CategoryRepository(DataContext repo)
-            => _context = repo;
+        public CategoryRepository(DataContext ctx) 
+            => _context = ctx;
 
         public IEnumerable<Category> Categories => _context.Categories;
 

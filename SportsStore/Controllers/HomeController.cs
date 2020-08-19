@@ -3,52 +3,20 @@ using SportsStore.Models;
 
 namespace SportsStore.Controllers
 {
+
     public class HomeController : Controller
     {
         private IRepository _repository;
         private ICategoryRepository _catRepository;
 
-        public HomeController(IRepository repo, ICategoryRepository crepo)
+        public HomeController(IRepository repo, ICategoryRepository catRepo)
         {
             _repository = repo;
-            _catRepository = crepo;
+            _catRepository = catRepo;
         }
 
         public IActionResult Index()
             => View(_repository.Products);
-        #region old
-        [HttpPost]
-        //public IActionResult AddProduct(Product product)
-        //{
-        //    repository.AddProduct(product);
-        //    return RedirectToAction(nameof(Index));
-        //}
-
-        //// Отправляет продукт на форму для редактирования
-        //public IActionResult UpdateProduct(long key)
-        //    => View(repository.GetProduct(key));
-
-        //[HttpPost]
-        //// Сохраняет изменения продукта
-        //public IActionResult UpdateProduct(Product product)
-        //{
-        //    repository.UpdateProduct(product);
-        //    return RedirectToAction(nameof(Index));
-        //}
-
-        //public IActionResult UpdateAll()
-        //{
-        //    ViewBag.UpdateAll = true;
-        //    return View(nameof(Index), repository.Products);
-        //}
-
-        //[HttpPost]
-        //public IActionResult UpdateAll(Product[] products)
-        //{
-        //    repository.UpdateAll(products);
-        //    return RedirectToAction(nameof(Index));
-        //}
-        #endregion
 
         public IActionResult UpdateProduct(long key)
         {
@@ -67,7 +35,7 @@ namespace SportsStore.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteProduct(Product product)
+        public IActionResult Delete(Product product)
         {
             _repository.DeleteProduct(product);
             return RedirectToAction(nameof(Index));
